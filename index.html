@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shapes</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="container">
+    <h1>Shapes</h1>
+    <form>
+        <pre class="form-control" id="editor">
+/**
+Треба створити конструктори:
+
+фігура:
+     координати:
+          х,
+          у
+
+багатокутник -> фігура:
+     вершини[координати],
+     периметр()
+
+прямокутник -> багатокутник:
+     довжина,
+     висота,
+     площа(),
+     периметр()
+
+квадрат -> прямокутник:
+     довжинаСторони,
+     площа(),
+     периметр()
+
+трикутник -> фігура:
+    площа(),
+    периметр()
+
+круг -> фігура:
+     радіус,
+     площа(),
+     периметр()
+
+з яких можна створювати обєкти, і дізнаватися їхню площу і периметр.
+Сподіваюсь ви розбкрктксь в наших позначках, там має бути все зрозуміло,
+використовуйте спадкування. Скоро Фред зробить під це завдання тести,
+і ви зможите подивитись назви і сігнатури всіх методів, і якщо зараз не
+все зрозуміло то буде зрозуміліше згодом. Робити "можна" починати зараз,
+питання також можна задавати зараз.﻿
+**/
+function Shape(center) {
+    this.getCenter = function() {
+        return center;
+    };
+}
+
+
+function Polygon(center, points) {
+}
+
+function Rectangle(center, width, height) {
+}
+/**
+ * Let this be a clue as to how to go about this task
+ */
+function Square(center, width) {
+    Rectangle.apply(this, [center, width, width]);
+}
+Square.prototype = Object.create(Rectangle.prototype);
+
+function Circle(center, radius) {
+}
+
+/**
+ * We have kindly made this class for you
+ */
+function Point(x, y) {
+    this.getX = function() {
+        return x;
+    };
+    this.getY = function() {
+        return y;
+    };
+}
+Point.prototype.getPointAtOffset = function(x, y) {
+    return new Point(this.getX() + x, this.getY() + y);
+};
+Point.prototype.getDistance = function(point) {
+    return Math.sqrt(Math.pow(this.getX() - point.getX(), 2) + Math.pow(this.getY() - point.getY(), 2));
+};
+
+Shapes = {
+    Shape: Shape,
+    Polygon: Polygon,
+    Rectangle: Rectangle,
+    Square: Square,
+    Circle: Circle,
+    Point: Point
+};
+        </pre>
+        <button id="run" class="btn">Run</button>
+    </form>
+    <pre id="output"></pre>
+</div>
+<script src="bower_components/ace-builds/src/ace.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
