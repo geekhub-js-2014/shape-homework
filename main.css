@@ -1,14 +1,3 @@
 #editor {
     height: 300px;
 }
-
-.block {
-    width: 5px;
-    height: 5px;
-    background-color: grey;
-    float: left;
-}
-.block.alive {
-    background-color: black;
-}
-
