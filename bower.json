@@ -1,0 +1,13 @@
+{
+  "name": "shapes",
+  "version": "0.0.0",
+  "homepage": "https://github.com/geekhub-js-2014/shapes-homework",
+  "authors": [
+    "Fred Cox <mcfedr@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ace-builds": "~1.1.8",
+    "bootstrap": "~3.3.1"
+  }
+}
